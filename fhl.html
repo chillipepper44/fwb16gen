@@ -169,11 +169,14 @@
   <button onclick="location.href='index.html'" class="top-right">Back to FWB/16</button>
 
   <script>
-    function $(id) {
-      return document.getElementById(id).value.trim().toUpperCase();
-    }
-
     function generateFHL() {
+      const $ = id => document.getElementById(id).value.trim().toUpperCase();
+
+      const mpcs = parseFloat($("mpcs")) || 0;
+      const mweight = parseFloat($("mweight")) || 0;
+      const hpcs = parseFloat($("hpcs")) || 0;
+      const hweight = parseFloat($("hweight")) || 0;
+      
       let msg = 'FHL/4\n';
       msg += `MBI/${$("mawb")}${$("mdep")}${$("marr")}/T${$(mpcs)}K${$(mweight)}\n`;
       msg += `HBS/${$("hawb")}/${$("hdep")}${$("harr")}/${$("hpcs")}/K${$("hweight")}/${$("hpcs")}/${$("hng")}\n`;
