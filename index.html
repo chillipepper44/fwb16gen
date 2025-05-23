@@ -204,11 +204,12 @@
     msg += shipperLine;
     msg += consigneeLine;
 
-    msg += `CVD/THB/PX/PP/NVD/NCV/XXX\n`;
-    msg += `RTD/1/P1/K${weight}/W${cweight}/R1/T1\n`;
+    msg += `CVD/THB//PP/1/NCV/1\n`;
+    msg += `RTD/1/P1/K${weight}/CQ/W${cweight}/R1/T1\n`;
     msg += `OTH/P/AWC1\n`;
     msg += `PPD/WT1/TX1/CT1\n`;
-    msg += `ISU/${$("flightDate")}/${$("dep")}\n`;
+    msg += `ISU/${$("flightDate")}/${$("dep")}/AGS\n`;
+    msg += `REF///GHA/AGS/DMK\n`;
 
     document.getElementById("output").innerText = msg;
   }
