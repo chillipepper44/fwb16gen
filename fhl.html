@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>FHL/4 Generator</title>
+  <style>
+    body { background-color: #121212; color: #eee; font-family: Consolas, monospace; padding: 20px; max-width: 800px; margin: auto; }
+    input, textarea { width: 100%; margin: 5px 0 15px; padding: 8px; background: #222; color: #eee; border: 1px solid #555; }
+    label { font-weight: bold; display: block; margin-top: 10px; }
+    button { padding: 10px 20px; font-size: 16px; cursor: pointer; background: #333; color: #fff; border: 1px solid #777; }
+    pre { background-color: #1e1e1e; padding: 15px; white-space: pre-wrap; border: 1px solid #444; }
+  </style>
+</head>
+<body>
+  <h1>FHL/4 Message Generator</h1>
+
+  <form id="fhlForm">
+    <label>AWB Number</label><input id="awb">
+    <label>Departure Airport</label><input id="dep">
+    <label>Arrival Airport</label><input id="arr">
+    <label>PCS</label><input id="pcs" type="number">
+    <label>Weight</label><input id="weight" type="number">
+    <label>Nature of Goods</label><input id="goods">
+
+    <label>Shipper Name</label><input id="shipperName">
+    <label>Shipper Address</label><input id="shipperAddr">
+    <label>Shipper City</label><input id="shipperCity">
+    <label>Shipper Country</label><input id="shipperCountry" maxlength="2">
+    <label>Shipper Post Code</label><input id="shipperPost">
+
+    <label>Consignee Name</label><input id="consigneeName">
+    <label>Consignee Address</label><input id="consigneeAddr">
+    <label>Consignee City</label><input id="consigneeCity">
+    <label>Consignee Country</label><input id="consigneeCountry" maxlength="2">
+    <label>Consignee Post Code</label><input id="consigneePost">
+    <label>Consignee Phone</label><input id="consigneePhone">
+
+    <button type="button" onclick="generateFHL()">Generate FHL/4</button>
+    <button type="button" onclick="location.href='index.html'" style="margin-left: 10px;">กลับหน้า FWB/16</button>
+  </form>
+
+  <h2>Generated Message</h2>
+  <pre id="output"></pre>
+
+  <script>
+    function $(id) { return document.getElementById(id).value.trim().toUpperCase(); }
+
+    function generateFHL() {
+      const msg = 
+`FHL/4
+MBI/${$("awb")}${$("dep")}${$("arr")}/T${$("pcs")}K${$("weight")}
+HBS/FTC74691/${$("dep")}${$("arr")}/${$("pcs")}/K${$("weight")}.0/${$("pcs")}/${$("goods")}
+TXT/${$("goods")}
+SHP/${$("shipperName")}
+/${$("shipperAddr")}
+/${$("shipperCity")}
+/${$("shipperCountry")}/${$("shipperPost")}
+CNE/${$("consigneeName")}
+/${$("consigneeAddr")}
+/${$("consigneeCity")}
+/${$("consigneeCountry")}/${$("consigneePost")}/TE/${$("consigneePhone")}
+CVD/THB/PP/NVD/0.000/0.00`;
+
+      document.getElementById("output").innerText = msg;
+    }
+  </script>
+</body>
+</html>
