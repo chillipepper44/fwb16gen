@@ -175,7 +175,7 @@
 
     function generateFHL() {
       let msg = 'FHL/4\n';
-      msg += `MBI/${$("mawb")}${$("mdep")}${$("marr")}/T${mpcs}K${mweight}\n`;
+      msg += `MBI/${$("mawb")}${$("mdep")}${$("marr")}/T${$(mpcs)}K${$(mweight)}\n`;
       msg += `HBS/${$("hawb")}/${$("hdep")}${$("harr")}/${$("hpcs")}/K${$("hweight")}/${$("hpcs")}/${$("hng")}\n`;
       msg += `TXT/${$("hng")}\n`;
       msg += `SHP/${$("shipper")}\n/${$("shipperAddr")}\n/${$("shipperCity")}\n/${$("shipperCountry")}/${$("shipperPost")}TE/${$("shipperTel")}\n`;
