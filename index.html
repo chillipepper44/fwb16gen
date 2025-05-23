@@ -152,8 +152,6 @@
   <label>Piece (PCS)</label><input id="pcs" type="number" placeholder="10" />
   <label>Weight (kg)</label><input id="weight" type="number" placeholder="20" />
   <label>Chargeable Weight</label><input id="cweight" type="number" placeholder="30.00" />
-  <label>Nature of Goods (NG)</label><input id="ng" placeholder="Consol" />
-  <label>Special Handling Code (SPH)</label><input id="sph" placeholder="GEN" />
 
   <button type="button" onclick="generateFWB()">Generate FWB/16</button>
   </form>
@@ -177,13 +175,10 @@
       msg += `CNE\n/${$("consigneeName")}\n/${$("consigneeAddr")}\n/${$("consigneeCity")}\n/${$("consigneeCountry")}/${$("consigneePost")}/TE/${$("consigneeTel")}\n`;
       msg += `CVD/THB/PX/PP/NVD/NCV/XXX\n`;
       msg += `RTD/1/P1/K${weight}/W${cweight}/R1/T1\n`;
-      msg += `/NG/${$("ng")}\n`;
       msg += `OTH/P/AWC1\n`;
       msg += `PPD/WT1/TX0.00\n`;
       msg += `/CT1\n`;
       msg += `ISU/${$("flightDate")}/${$("dep")}\n`;
-      msg += `REF///GHA/AGS/DMK\n`;
-      msg += `SPH/${$("sph")}`;
 
       document.getElementById("output").innerText = msg;
     }
