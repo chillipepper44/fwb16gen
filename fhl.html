@@ -151,7 +151,11 @@
     <label>Consignee Phone No</label><input id="consigneeTel" placeholder="0123456789" />
     <label>Consignee Country</label><input id="consigneeCountry" maxlength="2" placeholder="SG">
   </div>
-
+    
+    <label>HAWB Number</label><input id="hawb" type="number" placeholder="10" />
+    <label>HAWB Departure Airport</label><input id="hdep" placeholder="DMK" />
+    <label>HAWB Arrival Airport</label><input id="harr" placeholder="SIN" />
+    <label>HAWB Nature of Goods (NG)</label><input id="hng" placeholder="LIVE TROPICAl FISH" />
     <label>HAWB Piece (PCS)</label><input id="hpcs" type="number" placeholder="10" />
     <label>HAWB Weight (kg)</label><input id="hweight" type="number" placeholder="20.00" />
 
@@ -170,13 +174,13 @@
     }
 
     function generateFHL() {
-      let msg = '';
-      msg += `MBI/${$("mawb")}\n`;
-      msg += `HBS/${$("hawb")}\n`;
-      msg += `TXT/${$("desc")}\n`;
-      msg += `SHP/${$("shipper")}\n/${$("shipperAddr")}\n/${$("shipperCity")}\n/${$("shipperCountry")}/${$("shipperPost")}\n`;
+      let msg = 'FHL/4\n';
+      msg += `MBI/${$("mawb")}${$("mdep")}${$("marr")}/T${mpcs}K${mweight}\n`;
+      msg += `HBS/${$("hawb")}/${$("hdep")}${$("harr")}/${$("hpcs")}/K${$("hweight")}/${$("hpcs")}/${$("hng")}\n`;
+      msg += `TXT/${$("hng")}\n`;
+      msg += `SHP/${$("shipper")}\n/${$("shipperAddr")}\n/${$("shipperCity")}\n/${$("shipperCountry")}/${$("shipperPost")}TE/${$("shipperTel")}\n`;
       msg += `CNE/${$("consignee")}\n/${$("consigneeAddr")}\n/${$("consigneeCity")}\n/${$("consigneeCountry")}/${$("consigneePost")}/TE/${$("consigneeTel")}\n`;
-      msg += `${$("charge")}\n`;
+      msg += `CVD/THB/PP/NVD/0.000/0.00\n`;
       document.getElementById("output").innerText = msg;
     }
 
