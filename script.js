@@ -96,7 +96,7 @@ function generateFHL() {
   const shipperTel = $("shipperTel");
   let shipperFull = shipperLine;
   if (shipperPost) shipperFull += `/${shipperPost}`;
-  if (shipperTel) shipperFull += `TE/${shipperTel}`;
+  if (shipperTel) shipperFull += `/TE/${shipperTel}`;
   shipperFull += `\n`;
 
   // Consignee block
