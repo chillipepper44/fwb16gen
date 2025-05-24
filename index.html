@@ -1,164 +1,42 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>FWB/16 Generator</title>
-  <style>
-    body {
-      font-family: Consolas, monospace;
-      background-color: #121212;
-      color: #e0e0e0;
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 20px 30px;
-      border-radius: 10px;
-      box-sizing: border-box;
-    }
-
-    h1 {
-      text-align: center;
-      color: #82cfff;
-      margin-bottom: 40px;
-      font-weight: 700;
-    }
-
-    label {
-      font-weight: 600;
-      display: block;
-      margin-top: 20px;
-      font-size: 16px;
-      color: #a0a0a0;
-    }
-
-    input {
-      width: 100%;
-      padding: 10px;
-      margin-top: 6px;
-      border: 1.5px solid #444;
-      border-radius: 8px;
-      font-size: 15px;
-      background-color: #222;
-      color: #eee;
-      transition: border-color 0.3s ease, background-color 0.3s ease;
-      box-sizing: border-box;
-    }
-    input::placeholder {
-      color: #666;
-    }
-    input:focus {
-      border-color: #82cfff;
-      outline: none;
-      background-color: #1a1a1a;
-      box-shadow: 0 0 6px #82cfff88;
-    }
-
-    button {
-      display: block;
-      margin: 30px auto 0 auto;
-      padding: 14px 36px;
-      background-color: #0083ff;
-      color: white;
-      border: none;
-      border-radius: 12px;
-      font-size: 18px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      box-shadow: 0 4px 8px #0083ffaa;
-    }
-    button:hover {
-      background-color: #005bb5;
-      box-shadow: 0 6px 12px #005bb599;
-    }
-
-    h2 {
-      margin-top: 50px;
-      text-align: center;
-      color: #bbbbbb;
-    }
-
-    pre {
-      background-color: #1e1e1e;
-      padding: 25px;
-      border-radius: 12px;
-      border: 1px solid #333;
-      white-space: pre-wrap;
-      font-size: 16px;
-      line-height: 1.5;
-      box-shadow: inset 0 0 10px #000000aa;
-      max-height: 400px;
-      overflow-y: auto;
-      user-select: text;
-      color: #cfcfcf;
-    }
-  /* กล่องข้อมูลแยกชัดเจน */
-  .section-box {
-    background-color: #1f1f1f;
-    border: 1.5px solid #444;
-    border-radius: 10px;
-    padding: 15px 25px;
-    margin-top: 25px;
-  }
-  .section-box h3 {
-    color: #82cfff;
-    margin-top: 0;
-    margin-bottom: 15px;
-    font-weight: 700;
-    border-bottom: 2px solid #5ac8fa;
-    padding-bottom: 5px;
-  }
-  /* ลดช่องว่างใน label/input สำหรับกล่องนี้ */
-  .section-box label {
-    margin-top: 12px;
-    color: #a0a0a0;
-  }
-  .top-right {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: #333;
-  color: #fff;
-  border: 1px solid #777;
-  padding: 10px 15px;
-  font-size: 14px;
-  cursor: pointer;
-  }
-  input {
-    text-transform: uppercase; /* แสดงใน input เป็นตัวพิมพ์ใหญ่ */
-  }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>FWB/16 Message Generator</h1>
-  <form id="fwbForm" onsubmit="return false;">
-  <label>AWB Number</label><input id="awb" placeholder="310-12345678" />
-  <label>Departure Airport</label><input id="dep" placeholder="DMK" />
-  <label>Arrival Airport</label><input id="arr" placeholder="SIN" />
-  <label>Flight Number</label><input id="flight" placeholder="SL100" />
-  <label>Flight Date</label><input id="flightDate" placeholder="01JAN25" />
-
-  <div class="section-box">
-    <h3>Shipper Information</h3>
-    <label>Shipper Name</label><input id="shipperName" maxlength="35" placeholder="ACME CO LTD" />
-    <label>Shipper Address</label><input id="shipperAddr" maxlength="35" placeholder="152 Silom Rd" />
-    <label>Shipper City</label><input id="shipperCity" maxlength="19" placeholder="Bangkok" />
-    <label>Shipper Post Code</label><input id="shipperPost" maxlength="9" placeholder="10500" />
-    <label>Shipper Phone No</label><input id="shipperTel" maxlength="18" placeholder="0812345678" />
-    <label>Shipper Country</label>
-    <input id="shipperCountry" maxlength="2" placeholder="TH" style="width: 45px;" />
+<h1>FWB/16 Message Generator</h1>
+<form id="fwbForm" onsubmit="return false;" class="form-container">
+  <div class="form-group">
+    <label for="awb">AWB Number</label>
+    <input id="awb" placeholder="310-12345678" style="width: 120px;">
   </div>
 
-  <div class="section-box">
-    <h3>Consignee Information</h3>
-    <label>Consignee Name</label><input id="consigneeName" maxlength="35" placeholder="BETA CO LTD" />
-    <label>Consignee Address</label><input id="consigneeAddr" maxlength="35" placeholder="88 Jalan Ampang" />
-    <label>Consignee City</label><input id="consigneeCity" maxlength="19" placeholder="SINGAPORE" />
-    <label>Consignee Post Code</label><input id="consigneePost" maxlength="9" placeholder="50450" />
-    <label>Consignee Phone No</label><input id="consigneeTel" maxlength="18" placeholder="0123456789" />
-    <label>Consignee Country</label>
-    <input id="consigneeCountry" maxlength="2" placeholder="MY" style="width: 45px;" />
+  <div class="form-group">
+    <label for="dep">Departure Airport</label>
+    <input id="dep" placeholder="DMK" maxlength="3" style="width: 56px;" class="center-text">
   </div>
+
+  <div class="form-group">
+    <label for="arr">Arrival Airport</label>
+    <input id="arr" placeholder="SIN" maxlength="3" style="width: 56px;" class="center-text">
+  </div>
+
+  <div class="form-group">
+    <label for="flight">Flight Number</label>
+    <input id="flight" placeholder="SL100" style="width: 100px;" class="center-text">
+  </div>
+
+  <div class="form-group">
+    <label for="flightDate">Flight Date</label>
+    <input id="flightDate" placeholder="01JAN25" style="width: 100px;" class="center-text">
+  </div>
+</form>
+
+  <div id="shipperContainer"></div>
+
+  <div id="consigneeContainer"></div>
 
   <label>Piece (PCS)</label><input id="pcs" type="number" placeholder="10" />
   <label>Weight (kg)</label><input id="weight" type="number" placeholder="20" />
@@ -170,70 +48,11 @@
   <h2>Generated Message</h2>
   <pre id="output"></pre>
 
-  <script>
-  function generateFWB() {
-    const $ = id => document.getElementById(id).value.trim().toUpperCase();
-
-    const pcs = parseFloat($("pcs")) || 0;
-    const weight = parseFloat($("weight")) || 0;
-    const cweight = parseFloat($("cweight")) || 0;
-
-    let msg = `FWB/16\n`;
-    msg += `${$("awb")}${$("dep")}${$("arr")}/T${pcs}K${weight}\n`;
-    msg += `FLT/${$("flight")}/${$("flightDate").substring(0,2)}\n`;
-    msg += `RTG/${$("arr")}${$("flight").substring(0,2)}\n`;
-
-    // ✅ SHP
-    const shipperBase = `SHP\n/${$("shipperName")}\n/${$("shipperAddr")}\n/${$("shipperCity")}\n/${$("shipperCountry")}`;
-    const shipperPost = $("shipperPost");
-    const shipperTel = $("shipperTel");
-    let shipperLine = shipperBase;
-    if (shipperPost) shipperLine += `/${shipperPost}`;
-    if (shipperTel) shipperLine += `/TE/${shipperTel}`;
-    shipperLine += `\n`;
-
-    // ✅ CNE
-    const consigneeBase = `CNE\n/${$("consigneeName")}\n/${$("consigneeAddr")}\n/${$("consigneeCity")}\n/${$("consigneeCountry")}`;
-    const consigneePost = $("consigneePost");
-    const consigneeTel = $("consigneeTel");
-    let consigneeLine = consigneeBase;
-    if (consigneePost) consigneeLine += `/${consigneePost}`;
-    if (consigneeTel) consigneeLine += `/TE/${consigneeTel}`;
-    consigneeLine += `\n`;
-
-    msg += shipperLine;
-    msg += consigneeLine;
-
-    msg += `CVD/THB/PX/PP/NVD/NCV/XXX\n`;
-    msg += `RTD/1/P1/K${weight}/CQ/W${cweight}/R1/T1\n`;
-    msg += `OTH/P/AWC1\n`;
-    msg += `PPD/WT1/TX1/CT1\n`;
-    msg += `ISU/${$("flightDate")}/${$("dep")}\n`;
-
-    document.getElementById("output").innerText = msg;
-  }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
 
 <button type="button" onclick="copyFWB()" style="margin-top: 10px; display: block; margin-left: auto; margin-right: auto; padding: 8px 20px; font-size: 16px; cursor: pointer;">Copy to Clipboard</button>
-
-<script>
-  // ฟังก์ชัน generateFWB() เดิมเหมือนเดิม
-
-  function copyFWB() {
-    const output = document.getElementById("output").innerText;
-    if (!output) {
-      alert("กรุณาสร้างข้อความก่อนคัดลอกนะครับ");
-      return;
-    }
-    navigator.clipboard.writeText(output).then(() => {
-      alert("Copied to clipboard!");
-    }).catch(err => {
-      alert("ไม่สามารถคัดลอกได้: " + err);
-    });
-  }
-</script>
 
 
 <button onclick="location.href='fhl.html'" class="top-right">Generator FHL/4</button>

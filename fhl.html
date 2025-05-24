@@ -3,163 +3,79 @@
 <head>
   <meta charset="UTF-8">
   <title>FHL/4 Generator</title>
-  <style>
-    body {
-      font-family: Consolas, monospace;
-      background-color: #121212;
-      color: #e0e0e0;
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 20px 30px;
-      border-radius: 10px;
-      box-sizing: border-box;
-    }
-
-    h1 {
-      text-align: center;
-      color: #82cfff;
-      margin-bottom: 40px;
-      font-weight: 700;
-    }
-
-    label {
-      font-weight: 600;
-      display: block;
-      margin-top: 20px;
-      font-size: 16px;
-      color: #a0a0a0;
-    }
-
-    input {
-      width: 100%;
-      padding: 10px;
-      margin-top: 6px;
-      border: 1.5px solid #444;
-      border-radius: 8px;
-      font-size: 15px;
-      background-color: #222;
-      color: #eee;
-      transition: border-color 0.3s ease, background-color 0.3s ease;
-      box-sizing: border-box;
-      text-transform: uppercase;
-    }
-    input:focus {
-      border-color: #82cfff;
-      outline: none;
-      background-color: #1a1a1a;
-      box-shadow: 0 0 6px #82cfff88;
-    }
-
-    button {
-      display: block;
-      margin: 30px auto 0 auto;
-      padding: 14px 36px;
-      background-color: #0083ff;
-      color: white;
-      border: none;
-      border-radius: 12px;
-      font-size: 18px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      box-shadow: 0 4px 8px #0083ffaa;
-    }
-    button:hover {
-      background-color: #005bb5;
-      box-shadow: 0 6px 12px #005bb599;
-    }
-
-    h2 {
-      margin-top: 50px;
-      text-align: center;
-      color: #bbbbbb;
-    }
-
-    pre {
-      background-color: #1e1e1e;
-      padding: 25px;
-      border-radius: 12px;
-      border: 1px solid #333;
-      white-space: pre-wrap;
-      font-size: 16px;
-      line-height: 1.5;
-      box-shadow: inset 0 0 10px #000000aa;
-      max-height: 400px;
-      overflow-y: auto;
-      user-select: text;
-      color: #cfcfcf;
-    }
-  .section-box {
-    background-color: #1f1f1f;
-    border: 1.5px solid #444;
-    border-radius: 10px;
-    padding: 15px 25px;
-    margin-top: 25px;
-  }
-  .section-box h3 {
-    color: #82cfff;
-    margin-top: 0;
-    margin-bottom: 15px;
-    font-weight: 700;
-    border-bottom: 2px solid #5ac8fa;
-    padding-bottom: 5px;
-  }
-  /* ลดช่องว่างใน label/input สำหรับกล่องนี้ */
-  .section-box label {
-    margin-top: 12px;
-    color: #a0a0a0;
-  }
-  .top-right {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background: #333;
-      color: #fff;
-      border: 1px solid #777;
-      padding: 10px 15px;
-      font-size: 14px;
-      cursor: pointer;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <h1>FHL/4 Message Generator</h1>
 
-  <form onsubmit="return false;">
-    <label>MAWB Number</label><input id="mawb" placeholder="310-12345678">
-    <label>MAWB Piece (PCS)</label><input id="mpcs" type="number" placeholder="10">
-    <label>MAWB Weight (kg)</label><input id="mweight" type="number" placeholder="20.00">
-    <label>MAWB Departure Airport</label><input id="mdep" placeholder="DMK" />
-    <label>MAWB Arrival Airport</label><input id="marr" placeholder="SIN" />
+  <form onsubmit="return false;" class="form-container">
 
-  <div class="section-box">
-    <h3>Shipper Information</h3>
-    <label>Shipper</label><input id="shipper" maxlength="35" placeholder="MEESUK EXPORT LIMITED PARTNERSHIP">
-    <label>Shipper Address</label><input id="shipperAddr" maxlength="35" placeholder="328 3 4 DAMRONGRAK ROAD KLONG MAHAN">
-    <label>Shipper City</label><input id="shipperCity" maxlength="19" placeholder="BANGKOK">
-    <label>Shipper Post Code</label><input id="shipperPost" maxlength="9" type="number" placeholder="10100">
-    <label>Shipper Phone No</label><input id="shipperTel" maxlength="18" type="number" placeholder="0812345678" />
-    <label>Shipper Country</label>
-    <input id="shipperCountry" maxlength="2" placeholder="TH" style="width: 45px;" />
-  </div>
+    <div class="form-group">
+      <label>MAWB Number</label>
+      <input id="mawb" placeholder="310-12345678" style="width: 120px;">
+    </div>
 
-  <div class="section-box">
-    <h3>Consignee Information</h3>
-    <label>Consignee</label><input id="consignee" maxlength="35" placeholder="COVENANT FREIGHT PTE LTD">
-    <label>Consignee Address</label><input id="consigneeAddr" maxlength="35" placeholder="21 WOODLANDS CLOSE 07 47">
-    <label>Consignee City</label><input id="consigneeCity" maxlength="19" placeholder="SINGAPORE">
-    <label>Consignee Post Code</label><input id="consigneePost" maxlength="9" type="number" placeholder="50450">
-    <label>Consignee Phone No</label><input id="consigneeTel" maxlength="18" type="number" placeholder="0123456789" />
-    <label>Consignee Country</label>
-    <input id="consigneeCountry" maxlength="2" placeholder="MY" style="width: 45px;" />
-  </div>
+    <div class="form-group">
+      <label>MAWB Departure Airport</label>
+      <input id="mdep" placeholder="DMK" maxlength="3" style="width: 56px;" class="center-text" />
+    </div>
+
+    <div class="form-group">
+      <label>MAWB Arrival Airport</label>
+      <input id="marr" placeholder="SIN" maxlength="3" style="width: 56px;" class="center-text" />
+    </div>
+
+    <div class="form-group">
+      <label>MAWB Piece (PCS)</label>
+      <input id="mpcs" type="number" placeholder="10" style="width: 136px;">
+    </div>
+
+    <div class="form-group">
+      <label>MAWB Weight (kg)</label>
+      <input id="mweight" type="number" placeholder="20.00" style="width: 136px;">
+    </div>
+
+
+
+  </form>
+
+  <div id="shipperContainer"></div>
+
+  <div id="consigneeContainer"></div>
     
-    <label>HAWB Number</label><input id="hawb" placeholder="NIN50243701" />
-    <label>HAWB Departure Airport</label><input id="hdep" placeholder="DMK" />
-    <label>HAWB Arrival Airport</label><input id="harr" placeholder="SIN" />
-    <label>HAWB Nature of Goods (NG)</label><input id="hng" placeholder="LIVE TROPICAl FISH" />
-    <label>HAWB Piece (PCS)</label><input id="hpcs" type="number" placeholder="10" />
-    <label>HAWB Weight (kg)</label><input id="hweight" type="number" placeholder="20.00" />
+  <form onsubmit="return false;" class="form-container">
+    <div class="form-group">
+      <label>HAWB Number</label>
+      <input id="hawb" placeholder="NIN50243701" style="width: 180px;" />
+    </div>
+
+    <div class="form-group">
+      <label>HAWB Departure Airport</label>
+      <input id="hdep" placeholder="DMK" maxlength="3" style="width: 56px;" />
+    </div>
+
+    <div class="form-group">
+      <label>HAWB Arrival Airport</label>
+      <input id="harr" placeholder="SIN" maxlength="3" style="width: 56px;" />
+    </div>
+
+    <div class="form-group">
+      <label>HAWB Nature of Goods (NG)</label>
+      <input id="hng" placeholder="LIVE TROPICAl FISH" />
+    </div>
+
+    <div class="form-group">
+      <label>HAWB Piece (PCS)</label>
+      <input id="hpcs" type="number" placeholder="10" style="width: 136px;" />
+    </div>
+
+    <div class="form-group">
+      <label>HAWB Weight (kg)</label>
+      <input id="hweight" type="number" placeholder="20.00" style="width: 136px;" />
+    </div>
+
+  </form>
+
 
     <button type="button" onclick="generateFHL()">Generate FHL/4</button>
   </form>
@@ -170,59 +86,8 @@
   <button onclick="copyFHL()">Copy to Clipboard</button>
   <button onclick="location.href='index.html'" class="top-right">Back to FWB/16</button>
 
-  <script>
-function generateFHL() {
-  const $ = id => document.getElementById(id).value.trim().toUpperCase();
-
-  const mpcs = parseFloat($("mpcs")) || 0;
-  const mweight = parseFloat($("mweight")) || 0;
-  const hpcs = parseFloat($("hpcs")) || 0;
-  const hweight = parseFloat($("hweight")) || 0;
-
-  let msg = 'FHL/4\n';
-  msg += `MBI/${$("mawb")}${$("mdep")}${$("marr")}/T${mpcs}K${mweight}\n`;
-  msg += `HBS/${$("hawb")}/${$("hdep")}${$("harr")}/${hpcs}/K${hweight}/${hpcs}/${$("hng")}\n`;
-  msg += `TXT/${$("hng")}\n`;
-
-  // 🧾 Shipper block
-  const shipperLine = `SHP/${$("shipper")}\n/${$("shipperAddr")}\n/${$("shipperCity")}\n/${$("shipperCountry")}`;
-  const shipperPost = $("shipperPost");
-  const shipperTel = $("shipperTel");
-  let shipperFull = shipperLine;
-  if (shipperPost) shipperFull += `/${shipperPost}`;
-  if (shipperTel) shipperFull += `TE/${shipperTel}`;
-  shipperFull += `\n`;
-
-  // 📦 Consignee block
-  const consigneeLine = `CNE/${$("consignee")}\n/${$("consigneeAddr")}\n/${$("consigneeCity")}\n/${$("consigneeCountry")}`;
-  const consigneePost = $("consigneePost");
-  const consigneeTel = $("consigneeTel");
-  let consigneeFull = consigneeLine;
-  if (consigneePost) consigneeFull += `/${consigneePost}`;
-  if (consigneeTel) consigneeFull += `/TE/${consigneeTel}`;
-  consigneeFull += `\n`;
-
-  msg += shipperFull;
-  msg += consigneeFull;
-  msg += `CVD/THB/PP/NVD/0.000/0.00\n`;
-
-  document.getElementById("output").innerText = msg;
-}
 
 
-
-    function copyFHL() {
-      const output = document.getElementById("output").innerText;
-      if (!output) {
-        alert("กรุณาสร้างข้อความก่อนคัดลอก");
-        return;
-      }
-      navigator.clipboard.writeText(output).then(() => {
-        alert("Copied to clipboard!");
-      }).catch(err => {
-        alert("ไม่สามารถคัดลอกได้: " + err);
-      });
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
