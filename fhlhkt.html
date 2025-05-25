@@ -1,41 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  
-  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>HKT FHL/4 Generator</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles/styles.css" />
 </head>
 <body>
-  <div id="nav-placeholder"></div>
-      <script>
-      fetch('nav.html')
-      .then(res => res.text())
-      .then(data => {
-      document.getElementById('nav-placeholder').innerHTML = data;
-      });
-        </script>
+
+  <!-- Navigation -->
+  <div id="side-nav-placeholder"></div>
+
+  <!-- Page Title -->
   <h1>HKT FHL/4 Generator</h1>
 
+  <!-- ==========================
+       Dynamic Form Containers
+  =========================== -->
   <div id="mawbContainer"></div>
-
   <div id="HKTshipperContainer"></div>
-
   <div id="HKTconsigneeContainer"></div>
-    
   <div id="hawbContainer"></div>
 
+  <!-- ==========================
+       Action & Output
+  =========================== -->
   <button type="button" onclick="generateHKTFHL()">Generate FHL/4</button>
 
   <h2>Generated Message</h2>
   <pre id="output"></pre>
 
-  <button onclick="copy()">Copy to Clipboard</button>
+  <button type="button" onclick="copy()">Copy to Clipboard</button>
+  <button type="button" id="clearBtn">Clear House Shipper & Consignee</button>
 
-  <script src="script.js"></script>
+  <!-- ==========================
+       Scripts
+  =========================== -->
+  <script type="module" src="scripts/navloader.js"></script>
+  <script type="module" src="scripts/autoload.js"></script>
 
-  <button id="clearBtn" type="button">Clear House Shipper & Consignee</button>
 </body>
 </html>
