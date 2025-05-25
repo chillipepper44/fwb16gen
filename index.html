@@ -1,58 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>FWB/16 Generator</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <title>FWB Generator - Home</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Consolas, monospace;
+      background-color: #121212;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 50vh;
+      padding: 20px;
+    }
+    h1 {
+      color: #82cfff;
+      margin-bottom: 40px;
+      font-size: 2.2rem;
+    }
+
+    .button-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 20px;
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .nav-button {
+      padding: 15px 20px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      background-color: #1f1f1f;
+      border: 1.5px solid #333;
+      color: #e0e0e0;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
+      text-decoration: none;
+      display: block;
+    }
+
+    .nav-button:hover {
+      background-color: #2a2a2a;
+      border-color: #82cfff;
+      color: #82cfff;
+    }
+  </style>
 </head>
 <body>
-<h1>FWB/16 Message Generator</h1>
-<form id="fwbForm" onsubmit="return false;" class="form-container">
-  <div class="form-group">
-    <label for="awb">AWB Number</label>
-    <input id="awb" placeholder="310-12345678" style="width: 120px;">
+  <div style="
+  position: absolute;
+  top: 12px;
+  left: 16px;
+  font-size: 13px;
+  color: #888;
+  font-style: italic;
+  opacity: 0.8;
+  pointer-events: none;
+">
+  Developed by Chilli Pepper
+</div>
+  <h1>FWB Generator</h1>
+  <div class="button-grid">
+    <a class="nav-button" href="fwb.html">FWB</a>
+    <a class="nav-button" href="fwbhkt.html">FWB HKT</a>
+    <a class="nav-button" href="fhl.html">FHL</a>
+    <a class="nav-button" href="fhlhkt.html">FHL HKT</a>
   </div>
-
-  <div class="form-group">
-    <label for="dep">Departure Airport</label>
-    <input id="dep" placeholder="DMK" maxlength="3" style="width: 56px;" class="center-text">
-  </div>
-
-  <div class="form-group">
-    <label for="arr">Arrival Airport</label>
-    <input id="arr" placeholder="SIN" maxlength="3" style="width: 56px;" class="center-text">
-  </div>
-
-  <div class="form-group">
-    <label for="flight">Flight Number</label>
-    <input id="flight" placeholder="SL100" style="width: 100px;" class="center-text">
-  </div>
-
-  <div class="form-group">
-    <label for="flightDate">Flight Date</label>
-    <input id="flightDate" placeholder="01JAN25" style="width: 100px;" class="center-text">
-  </div>
-</form>
-
-  <div id="shipperContainer"></div>
-
-  <div id="consigneeContainer"></div>
-
-  <label>Piece (PCS)</label><input id="pcs" type="number" placeholder="10" style="width: 136px;" />
-  <label>Weight (kg)</label><input id="weight" type="number" placeholder="20" style="width: 136px;" />
-  <label>Chargeable Weight</label><input id="cweight" type="number" placeholder="30.00" style="width: 136px;" />
-
-  <button type="button" onclick="generateFWB()">Generate FWB/16</button>
-  </form>
-
-  <h2>Generated Message</h2>
-  <pre id="output"></pre>
-
-  <script src="script.js"></script>
 </body>
 </html>
-
-<button type="button" onclick="copyFWB()" style="margin-top: 10px; display: block; margin-left: auto; margin-right: auto; padding: 8px 20px; font-size: 16px; cursor: pointer;">Copy to Clipboard</button>
-
-
-<button onclick="location.href='fhl.html'" class="top-right">Generator FHL/4</button>

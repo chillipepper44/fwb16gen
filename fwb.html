@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FWB/16 Generator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+        <script>
+        fetch('nav.html')
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById('nav-placeholder').innerHTML = data;
+        });
+        </script>
+<h1>FWB/16 Generator</h1>
+<div class="section-box">
+  <h3>AWB Information</h3>
+<div class="double-row">
+    <div class="form-field">
+      <label>AWB Number</label>
+      <input id="awb" placeholder="310-12345678" style="width: 120px;">
+    </div>
+
+    <div class="form-field">
+      <label>AWB Dep Airport</label>
+      <input id="dep" placeholder="DMK" maxlength="3" style="width: 56px;" class="center-text" />
+    </div>
+
+    <div class="form-field">
+      <label>AWB Arr Airport</label>
+      <input id="arr" placeholder="SIN" maxlength="3" style="width: 56px;" class="center-text" />
+    </div>
+
+    <div class="double-row">
+      <div class="form-field">
+        <label for="flight">Flight Number</label>
+        <input id="flight" placeholder="SL100" style="width: 100px;" class="center-text">
+      </div>
+      <div class="form-field">
+        <label for="flightDate">Flight Date</label>
+        <input id="flightDate" placeholder="01JAN25" style="width: 100px;" class="center-text">
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+  <div id="shipperContainer"></div>
+
+  <div id="consigneeContainer"></div>
+
+<form id="fwbForm" onsubmit="return false;" class="form-container">
+  <div class="form-group">
+    <label>Piece (PCS)</label><input id="pcs" type="number" placeholder="10" style="width: 136px;" />
+  </div>
+  <div class="form-group">
+    <label>Weight (kg)</label><input id="weight" type="number" placeholder="20" style="width: 136px;" />
+  </div>
+  <div class="form-group">
+  <label>Chargeable Weight</label><input id="cweight" type="number" placeholder="30.00" style="width: 136px;" />
+  </div>
+
+</form>
+
+<button onclick="generateFWB()">Generate FWB/16</button>
+
+  <h2>Generated Message</h2>
+  <pre id="output"></pre>
+
+<button onclick="copy()">Copy to Clipboard</button>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
+
+
