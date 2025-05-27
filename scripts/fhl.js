@@ -199,7 +199,7 @@ function generateFHL() {
 
   msg += shipperFull;
   msg += consigneeFull;
-  msg += `CVD/THB/PP/NVD/0.000/0.00\n`;
+  msg += `CVD/${$("currency")}/PP/NVD/0.000/0.00\n`;
 
   document.getElementById("output").innerText = msg;
 }
