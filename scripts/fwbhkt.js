@@ -134,7 +134,7 @@ function generateHKTFWB() {
   msg += `/NG/${$("ng")}\n`;
   msg += `PPD/WT${totalFormatted}\n`;
   msg += `/CT${totalFormatted}\n`;
-  msg += `ISU/${$("flightDate")}/${$("dep")}/${$("place")}/${$("agentName")}\n`;
+  msg += `ISU/${$("flightDate")}/${$("place")}/${$("agentName")}\n`;
   msg += `REF///GHA/AGS/DMK`;
 
   document.getElementById("output").innerText = msg;
