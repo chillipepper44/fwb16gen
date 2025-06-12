@@ -187,15 +187,30 @@ function generateFHL() {
 
   const shipperLine = `SHP/${$("shipperName")}\n/${$("shipperAddr")}\n/${$("shipperCity")}\n/${$("shipperCountry")}`;
   let shipperFull = shipperLine;
-  if ($("shipperPost")) shipperFull += `/${$("shipperPost")}`;
-  if ($("shipperTel")) shipperFull += `/TE/${$("shipperTel")}`;
+  
+  if ($("shipperPost") && $("shipperTel")) {
+  shipperFull += `/${$("shipperPost")}/TE/${$("shipperTel")}`;
+  } else if ($("shipperPost") && !$("shipperTel")) {
+  shipperFull += `/${$("shipperPost")}`;
+  } else if (!$("shipperPost") && $("shipperTel")) {
+  shipperFull += `//TE/${$("shipperTel")}`;
+  }
+  
   shipperFull += `\n`;
 
   const consigneeLine = `CNE/${$("consigneeName")}\n/${$("consigneeAddr")}\n/${$("consigneeCity")}\n/${$("consigneeCountry")}`;
   let consigneeFull = consigneeLine;
-  if ($("consigneePost")) consigneeFull += `/${$("consigneePost")}`;
-  if ($("consigneeTel")) consigneeFull += `/TE/${$("consigneeTel")}`;
+
+  if ($("consigneePost") && $("consigneeTel")) {
+  consigneeFull += `/${$("consigneePost")}/TE/${$("consigneeTel")}`;
+  } else if ($("consigneePost") && !$("consigneeTel")) {
+  consigneeFull += `/${$("consigneePost")}`;
+  } else if (!$("consigneePost") && $("consigneeTel")) {
+  consigneeFull += `//TE/${$("consigneeTel")}`;
+  }
+
   consigneeFull += `\n`;
+
 
   msg += shipperFull;
   msg += consigneeFull;
