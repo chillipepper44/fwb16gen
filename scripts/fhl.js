@@ -187,32 +187,14 @@ function generateFHL() {
 
   const shipperLine = `SHP/${$("shipperName")}\n/${$("shipperAddr")}\n/${$("shipperCity")}\n/${$("shipperCountry")}`;
   let shipperFull = shipperLine;
-
-  const post = $("shipperPost");
-  const tel = $("shipperTel");
-  
-  if (shipperPost) {shipperFull += `/${post}`;
-  if (tel) {shipperFull += `/TE/${tel}`;
-  }
-  } else if (tel) {
-  shipperFull += `//TE/${tel}`;
-  }
+  if ($("shipperPost")) shipperFull += `/${$("shipperPost")}`;
+  if ($("shipperTel")) shipperFull += `/TE/${$("shipperTel")}`;
   shipperFull += `\n`;
 
   const consigneeLine = `CNE/${$("consigneeName")}\n/${$("consigneeAddr")}\n/${$("consigneeCity")}\n/${$("consigneeCountry")}`;
   let consigneeFull = consigneeLine;
-
-  const post = $("consigneePost");
-  const tel = $("consigneeTel");
-
-  if (post && tel) {
-  consigneeFull += `/${post}/TE/${tel}`;
-  } else if (post && !tel) {
-  consigneeFull += `/${post}`;
-  } else if (!post && tel) {
-  consigneeFull += `//TE/${tel}`;
-  }
-
+  if ($("consigneePost")) consigneeFull += `/${$("consigneePost")}`;
+  if ($("consigneeTel")) consigneeFull += `/TE/${$("consigneeTel")}`;
   consigneeFull += `\n`;
 
   msg += shipperFull;
