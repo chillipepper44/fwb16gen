@@ -89,14 +89,22 @@ function generateFWB() {
 
   const shipperBase = `SHP\n/${$("shipperName")}\n/${$("shipperAddr")}\n/${$("shipperCity")}\n/${$("shipperCountry")}`;
   let shipperLine = shipperBase;
-  if ($("shipperPost")) shipperLine += `/${$("shipperPost")}`;
+  if ($("shipperPost")) {
+  shipperLine += `/${$("shipperPost")}`;
   if ($("shipperTel")) shipperLine += `/TE/${$("shipperTel")}`;
+  } else if ($("shipperTel")) {
+  shipperLine += `//TE/${$("shipperTel")}`;
+  }
   shipperLine += `\n`;
 
   const consigneeBase = `CNE\n/${$("consigneeName")}\n/${$("consigneeAddr")}\n/${$("consigneeCity")}\n/${$("consigneeCountry")}`;
   let consigneeLine = consigneeBase;
-  if ($("consigneePost")) consigneeLine += `/${$("consigneePost")}`;
+  if ($("consigneePost")) {
+  consigneeLine += `/${$("consigneePost")}`;
   if ($("consigneeTel")) consigneeLine += `/TE/${$("consigneeTel")}`;
+  } else if ($("consigneeTel")) {
+  consigneeLine += `//TE/${$("consigneeTel")}`;
+  }
   consigneeLine += `\n`;
 
   msg += shipperLine;
