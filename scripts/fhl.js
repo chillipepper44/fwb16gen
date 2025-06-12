@@ -193,7 +193,6 @@ function generateFHL() {
 
   const consigneeLine = `CNE/${$("consigneeName")}\n/${$("consigneeAddr")}\n/${$("consigneeCity")}\n/${$("consigneeCountry")}`;
   let consigneeFull = consigneeLine;
-  if ($("consigneePost")) consigneeFull += `/${$("consigneePost")}`;
   if ($("consigneeTel")) consigneeFull += `/TE/${$("consigneeTel")}`;
   consigneeFull += `\n`;
 
