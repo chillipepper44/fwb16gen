@@ -112,7 +112,8 @@ function generateFWB() {
 
   msg += `CVD/THB/PP/PP/NVD/NCV/XXX\n`;
   msg += `RTD/1/P${pcs}/K${weight}/CQ/W${cweight}/R1/T${pcs}\n`;
-  msg += `OTH/P/AWC1\n`;
+  msg += `OTH/P/AWA1\n`;
+  msg += `/P/AWC1\n`;
   msg += `PPD/WT${pcs}/TX1/CT${pcs}\n`;
   msg += `ISU/${$("flightDate")}/${$("dep")}\n`;
 
