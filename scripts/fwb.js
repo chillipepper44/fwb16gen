@@ -8,10 +8,10 @@ if (shipper) {
       <h3>Shipper Information</h3>
 
       <label>Shipper Name</label>
-      <input id="shipperName" maxlength="35" style="width: 520px;" placeholder="ACME CO LTD" />
+      <input id="shipperName" maxlength="50" style="width: 520px;" placeholder="ACME CO LTD" />
 
       <label>Shipper Address</label>
-      <input id="shipperAddr" maxlength="35" style="width: 520px;" placeholder="152 Silom Rd" />
+      <input id="shipperAddr" maxlength="50" style="width: 520px;" placeholder="152 Silom Rd" />
 
       <label>Shipper City</label>
       <input id="shipperCity" maxlength="19" style="width: 300px;" placeholder="Bangkok" />
@@ -38,10 +38,10 @@ if (consignee) {
       <h3>Consignee Information</h3>
 
       <label>Consignee Name</label>
-      <input id="consigneeName" maxlength="35" style="width: 520px;" placeholder="BETA CO LTD" />
+      <input id="consigneeName" maxlength="50" style="width: 520px;" placeholder="BETA CO LTD" />
 
       <label>Consignee Address</label>
-      <input id="consigneeAddr" maxlength="35" style="width: 520px;" placeholder="88 Jalan Ampang" />
+      <input id="consigneeAddr" maxlength="50" style="width: 520px;" placeholder="88 Jalan Ampang" />
 
       <label>Consignee City</label>
       <input id="consigneeCity" maxlength="19" style="width: 300px;" placeholder="SINGAPORE" />
