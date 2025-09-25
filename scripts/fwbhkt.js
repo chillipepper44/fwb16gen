@@ -130,7 +130,7 @@ function generateHKTFWB() {
 
   msg += `ACC/GEN/FREIGHT PREPAID\n`;
   msg += `CVD/${currency}/${payType}/${payType}/NVD/NCV/XXX\n`;
-  msg += `RTD/1/P1/K${weight}/C${$("rateclass")}/W${cweight}/R${rate}/T${totalFormatted}\n`;
+  msg += `RTD/1/P${pcs}/K${weight}/C${$("rateclass")}/W${cweight}/R${rate}/T${totalFormatted}\n`;
   msg += `/NG/${$("ng")}\n`;
   const ppdOrCol = payType === "CC" ? "COL" : "PPD";
   msg += `${ppdOrCol}/WT${totalFormatted}\n`;
