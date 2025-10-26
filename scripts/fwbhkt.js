@@ -119,7 +119,7 @@ function generateHKTFWB() {
   let msg = `FWB/16\n`;
   msg += `${$("awb")}${$("dep")}${$("arr")}/T${pcs}K${weight}\n`;
   msg += `FLT/${$("flight")}/${$("flightDate").substring(0, 2)}\n`;
-  msg += `RTG/${$("arr")}${$("flight").substring(0, 2)}\n`;
+  msg += `RTG/${$("farr")}${$("flight").substring(0, 2)}\n`;
 
   msg += `SHP\n/${$("shipperName")}\n/${$("shipperAddr")}\n/${$("shipperCity")}\n/${$("shipperCountry")}\n`;
   msg += `CNE\n/${$("consigneeName")}\n/${$("consigneeAddr")}\n/${$("consigneeCity")}\n/${$("consigneeCountry")}\n`;
