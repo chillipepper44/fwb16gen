@@ -49,3 +49,25 @@ function showToast(message, success = true) {
   }, 2000);
 }
 
+// ==========================
+// CreateMail Function
+// ==========================
+window.createMailFWB = function () {
+  const outputEl = document.getElementById("output");
+
+  if (!outputEl || outputEl.innerText.trim() === "") {
+    showToast("ไม่มี Message", false);
+    return;
+  }
+
+  const body = outputEl.innerText;
+
+  const to = "dmkfc@asiagroundservice.com;dmkfci@asiagroundservice.com";
+
+const mailtoLink =
+  `mailto:${to}` +
+  `?body=${encodeURIComponent(body)}`;
+
+  window.location.href = mailtoLink;
+};
+
