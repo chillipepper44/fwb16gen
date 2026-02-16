@@ -60,13 +60,16 @@ window.createMailFWB = function () {
     return;
   }
 
-  const body = outputEl.innerText;
+  const body = outputEl.innerText
+    .split("\n")
+    .map(line => line.replace(/\s+$/g, ""))
+    .join("\n");
 
-  const to = "dmkfc@asiagroundservice.com;dmkfci@asiagroundservice.com";
+  const to = "dmkfc@asiagroundservice.com,dmkfci@asiagroundservice.com";
 
-const mailtoLink =
-  `mailto:${to}` +
-  `?body=${encodeURIComponent(body)}`;
+  const mailtoLink =
+    `mailto:${to}` +
+    `?body=${encodeURIComponent(body)}`;
 
   window.location.href = mailtoLink;
 };
