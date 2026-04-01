@@ -80,7 +80,7 @@ if (oci) {
   oci.innerHTML = `
     <div class="section-box">
       <h3 onclick="toggleOCI()" style="cursor:pointer;">
-        ➕ Optional OCI / SPH
+        ➕ MAWB OCI / SPH
       </h3>
 
       <div id="ociSection" style="display:none; margin-top:10px;">
@@ -148,7 +148,7 @@ if (fhl) {
   fhl.innerHTML = `
     <div class="section-box">
       <h3 onclick="toggleFHL()" style="cursor:pointer;">
-        ➕ FHL / House Manifest
+        ➕ FHL / HAWB
       </h3>
 
       <div id="fhlSection" style="display:none; margin-top:10px;">
