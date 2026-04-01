@@ -69,5 +69,80 @@ const mailtoLink =
   `?body=${encodeURIComponent(body)}`;
 
   window.location.href = mailtoLink;
-};
+}
+
+// ==========================
+// generateOCI Function
+// ==========================
+export function generateOCI() {
+  const sph = document.getElementById("sph")?.value.trim();
+
+  const cc1 = document.getElementById("cc1")?.value.trim();
+  const info1 = document.getElementById("info1")?.value.trim();
+
+  const cc2 = document.getElementById("cc2")?.value.trim();
+  const info2 = document.getElementById("info2")?.value.trim();
+  const info3 = document.getElementById("info3")?.value.trim();
+  const info4 = document.getElementById("info4")?.value.trim();
+
+  let lines = [];
+
+  // SPH
+  if (sph) {
+    lines.push(`SPH/${sph}`);
+  }
+
+  let ociLines = [];
+
+  if (cc1 && info1) {
+    ociLines.push(`/${cc1}/SHP/T/${info1}`);
+  }
+
+  if (cc2 && info2) {
+    ociLines.push(`/${cc2}/CNE/T/${info2}`);
+  }
+
+  if (cc2 && info3) {
+    ociLines.push(`/${cc2}/CNE/KC/${info3}`);
+  }
+
+  if (cc2 && info4) {
+    ociLines.push(`/${cc2}/CNE/U/${info4}`);
+  }
+
+  if (ociLines.length > 0) {
+    lines.push("OCI" + ociLines.join("\n"));
+  }
+
+  return lines.join("\n");
+}
+
+// ==========================
+// toggleOCI Function
+// ==========================
+window.toggleOCI = function () {
+  const section = document.getElementById("ociSection");
+  section.style.display = section.style.display === "none" ? "block" : "none";
+}
+
+document.addEventListener("input", (e) => {
+  if (e.target.closest("#ociSection input")) {
+    e.target.value = e.target.value.toUpperCase();
+  }
+})
+
+document.addEventListener("input", (e) => {
+  if (e.target.id === "cc2") {
+    const value = e.target.value.toUpperCase();
+
+    const mirrors = [
+      document.getElementById("cc2_display1"),
+      document.getElementById("cc2_display2")
+    ];
+
+    mirrors.forEach(el => {
+      if (el) el.value = value;
+    });
+  }
+});
 

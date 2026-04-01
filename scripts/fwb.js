@@ -59,6 +59,78 @@ if (consignee) {
 }
 
 // ==========================
+// OCI Section
+// ==========================
+const oci = document.getElementById("ociContainer");
+if (oci) {
+  oci.innerHTML = `
+    <div class="section-box">
+      <h3 onclick="toggleOCI()" style="cursor:pointer;">
+        ➕ Optional OCI / SPH
+      </h3>
+
+      <div id="ociSection" style="display:none; margin-top:10px;">
+
+        <!-- SPH -->
+        <div class="rtd-row">
+          <div class="rtd-field">
+            <label>SPH</label>
+            <input id="sph" placeholder="PER">
+          </div>
+        </div>
+
+        <!-- SHP -->
+        <div class="rtd-row">
+          <div class="rtd-field">
+            <label>Country (SHP)</label>
+            <input id="cc1" placeholder="TH" class="center-text" maxlength="2">
+          </div>
+          <div class="rtd-field" style="flex:1;">
+            <label>Info</label>
+            <input id="info1" placeholder="TRADE REGISTER NUMBER">
+          </div>
+        </div>
+
+        <!-- CNE -->
+        <div class="rtd-row">
+          <div class="rtd-field">
+            <label>Country (CNE)</label>
+            <input id="cc2" placeholder="CN" class="center-text" maxlength="2">
+          </div>
+          <div class="rtd-field" style="flex:1;">
+            <label>CNE T</label>
+            <input id="info2" placeholder="USCI">
+          </div>
+        </div>
+
+        <div class="rtd-row">
+          <div class="rtd-field">
+            <label style="visibility:hidden;">Country</label>
+            <input id="cc2_display1" readonly placeholder="(same)" class="center-text">
+          </div>
+          <div class="rtd-field" style="flex:1;">
+            <label>CNE KC</label>
+            <input id="info3" placeholder="CNE NAME">
+          </div>
+        </div>
+
+        <div class="rtd-row">
+          <div class="rtd-field">
+            <label style="visibility:hidden;">Country</label>
+            <input id="cc2_display2" readonly placeholder="(same)" class="center-text">
+          </div>
+          <div class="rtd-field" style="flex:1;">
+            <label>CNE U</label>
+            <input id="info4" placeholder="TEL">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  `;
+}
+
+// ==========================
 // AWB Input Auto-format
 // ==========================
 const awbInput = document.getElementById("awb");
@@ -75,6 +147,8 @@ if (awbInput) {
 // ==========================
 // Generate FWB Function
 // ==========================
+import { generateOCI } from "./utils.js";
+
 function generateFWB() {
   const $ = id => document.getElementById(id).value.trim().toUpperCase();
 
@@ -116,10 +190,16 @@ function generateFWB() {
   msg += `PPD/WT1\n`;
   msg += `/CT1\n`;
   msg += `ISU/${$("flightDate")}/${$("dep")}\n`;
+  msg += `REF/XXXX\n`;
 
-  document.getElementById("output").innerText = msg;
+  const ociBlock = generateOCI();
+
+  if (ociBlock) {
+  msg += ociBlock + "\n";
+  }
+
+document.getElementById("output").innerText = msg;
 }
-
 // ==========================
 // Bind to Window
 // ==========================
