@@ -345,7 +345,7 @@ function generateFWB() {
   msg += `PPD/WT1\n`;
   msg += `/CT1\n`;
   msg += `ISU/${$("flightDate")}/${$("dep")}\n`;
-  msg += `REF/XXXX\n`;
+  msg += `REF/CGOFHAK\n`;
 
   // ---------- OCI ----------
   const ociBlock = generateOCI();
