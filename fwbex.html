@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="icon" type="image/png" href="assets/favicon-96x96.png" sizes="96x96" />
+  <link rel="shortcut icon" href="assets/favicon.ico" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FWB/16 Generator</title>
+  <link rel="stylesheet" href="styles/styles.css" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <div id="side-nav-placeholder"></div>
+
+  <!-- Page Title -->
+  <h1>FWB/16 Generator Export</h1>
+
+  <!-- ==========================
+       AWB Information Section
+  =========================== -->
+  <div class="section-box">
+    <h3>AWB Information</h3>
+
+    <div class="double-row">
+      <div class="form-field">
+        <label>AWB Number</label>
+        <input id="awb" placeholder="310-12345678" style="width: 120px;" />
+      </div>
+      <div class="form-field">
+        <label>AWB Dep Airport</label>
+        <input id="dep" placeholder="DMK" maxlength="3" style="width: 56px;" class="center-text" />
+      </div>
+      <div class="form-field">
+        <label>AWB Arr Airport</label>
+        <input id="arr" placeholder="SIN" maxlength="3" style="width: 56px;" class="center-text" />
+      </div>
+    </div>
+
+    <div class="double-row">
+      <div class="form-field">
+        <label>Flight Number</label>
+        <input id="flight" placeholder="SL100" style="width: 100px;" class="center-text" />
+      </div>
+      <div class="form-field">
+        <label>Flight Date</label>
+        <input id="flightDate" placeholder="01JAN25" style="width: 100px;" class="center-text" />
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================
+       Dynamic Sections
+  =========================== -->
+  <div id="shipperContainer"></div>
+  <div id="consigneeContainer"></div>
+
+  <!-- ==========================
+       Cargo Form
+  =========================== -->
+  <form id="fwbForm" onsubmit="return false;" class="form-container">
+    <div class="form-group">
+      <label>Piece (PCS)</label>
+      <input id="pcs" type="number" placeholder="10" style="width: 136px;" />
+    </div>
+    <div class="form-group">
+      <label>Weight (kg)</label>
+      <input id="weight" type="number" placeholder="20" style="width: 136px;" />
+    </div>
+    <div class="form-group">
+      <label>Chargeable Weight</label>
+      <input id="cweight" type="number" placeholder="30" style="width: 136px;" />
+    </div>
+    <div class="form-group">
+        <label>Rate</label>
+        <input id="rate" type="number" style="width: 136px;"/>
+    </div>
+    <div class="form-group">
+        <label>Total</label>
+        <input id="total" type="number" style="width: 136px;" placeholder="0.00" readonly />
+    </div>
+    <div class="form-group">
+        <label>Nature Of Goods</label>
+        <input id="ng" style="width: 250px;" />
+    </div>
+  </form>
+
+  <div id="ociContainer"></div>
+
+  <div id="fhlContainer"></div>
+
+  <!-- ==========================
+       Action & Output
+  =========================== -->
+  <button onclick="generateFWB()">Generate FWB/16</button>
+
+  <h2>Generated Message</h2>
+  <pre id="output"></pre>
+
+<div class="form-container" style="margin-top:30px">
+  <button onclick="copy()">Copy to Clipboard</button>
+  <button onclick="createMailFWB()">Create Mail</button>
+</div>
+
+
+  <!-- ==========================
+       Scripts
+  =========================== -->
+  <script type="module" src="scripts/navloader.js"></script>
+  <script type="module" src="scripts/autoload.js"></script>
+  <script type="module" src="scripts/fwbex.js"></script>
+
+</body>
+</html>

@@ -21,14 +21,20 @@ window.copy = copy;
 // ==========================
 // Toast Notification Function
 // ==========================
-function showToast(message, success = true) {
+window.showToast = function (message, success = true) {
+  // ลบ toast เก่าก่อน
+  const oldToast = document.getElementById("global-toast");
+  if (oldToast) oldToast.remove();
+
   const toast = document.createElement("div");
+  toast.id = "global-toast";
   toast.textContent = message;
+
   toast.style.position = "fixed";
   toast.style.top = "50%";
   toast.style.left = "50%";
   toast.style.transform = "translate(-50%, -50%)";
-  toast.style.background = success ? "#4caf50" : "#f44336"; // Green / Red
+  toast.style.background = success ? "#4caf50" : "#f44336";
   toast.style.color = "#fff";
   toast.style.padding = "12px 24px";
   toast.style.borderRadius = "10px";
@@ -39,15 +45,16 @@ function showToast(message, success = true) {
   toast.style.transition = "opacity 0.3s ease";
 
   document.body.appendChild(toast);
+
   requestAnimationFrame(() => {
     toast.style.opacity = "1";
   });
 
   setTimeout(() => {
     toast.style.opacity = "0";
-    setTimeout(() => document.body.removeChild(toast), 300);
+    setTimeout(() => toast.remove(), 300);
   }, 2000);
-}
+};
 
 // ==========================
 // CreateMail Function

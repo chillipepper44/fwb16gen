@@ -11,3 +11,4 @@ if (page === "fwb.html") import('./fwb.js');
 else if (page === "fhl.html") import('./fhl.js');
 else if (page === "fwbhkt.html") import('./fwbhkt.js');
 else if (page === "fhlhkt.html") import('./fhlhkt.js');
+else if (page === "fwbex.html") import('./fwbex.js');
