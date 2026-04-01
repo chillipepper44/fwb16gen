@@ -186,6 +186,10 @@ function generateFWB() {
 
   msg += `CVD/THB/PP/PP/NVD/NCV/XXX\n`;
   msg += `RTD/1/P1/K1/CQ/W${cweight}/R1/T1\n`;
+  const ng = $("ng");
+  if (ng) {
+  msg += `/NG/${ng}\n`;
+  }
   msg += `OTH/P/AWC1\n`;
   msg += `PPD/WT1\n`;
   msg += `/CT1\n`;
