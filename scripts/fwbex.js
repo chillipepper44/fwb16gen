@@ -116,6 +116,7 @@ if (oci) {
 
         <div class="rtd-row">
           <div class="rtd-field">
+            <label style="visibility:hidden;">.</label>
             <input id="cc2_display1" readonly class="center-text" placeholder="(same)">
           </div>
           <div class="rtd-field" style="flex:1;">
@@ -126,6 +127,7 @@ if (oci) {
 
         <div class="rtd-row">
           <div class="rtd-field">
+            <label style="visibility:hidden;">.</label>
             <input id="cc2_display2" readonly class="center-text" placeholder="(same)">
           </div>
           <div class="rtd-field" style="flex:1;">
@@ -223,6 +225,7 @@ if (fhl) {
 
         <div class="rtd-row">
           <div class="rtd-field">
+            <label style="visibility:hidden;">.</label>
             <input id="fhl_cc2_display1" readonly class="center-text" placeholder="(same)">
           </div>
           <div class="rtd-field" style="flex:1;">
@@ -233,6 +236,7 @@ if (fhl) {
 
         <div class="rtd-row">
           <div class="rtd-field">
+            <label style="visibility:hidden;">.</label>
             <input id="fhl_cc2_display2" readonly class="center-text" placeholder="(same)">
           </div>
           <div class="rtd-field" style="flex:1;">
