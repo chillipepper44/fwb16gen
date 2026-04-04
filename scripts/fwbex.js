@@ -438,10 +438,9 @@ window.generateFHL_inline = function () {
 
   msg += `MBI/${$("fhl_mawb")}${$("dep")}${$("arr")}/T${$("fhl_mpcs")}K${$("fhl_mweight")}\n`;
   msg += `HBS/${$("fhl_hawb")}/${$("fhl_hpcs")}/K${$("fhl_hweight")}/${$("fhl_hpcs")}/${$("fhl_ng")}\n`;
-  msg += `TXT/${$("fhl_ng")}\n`;
-
-  const oci = generateFHL_OCI();
+    const oci = generateFHL_OCI();
   if (oci) msg += oci;
+  msg += `TXT/${$("fhl_ng")}\n`;
 
   getEl("fhl_output").innerText = msg;
 };
