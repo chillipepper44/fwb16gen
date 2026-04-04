@@ -18,13 +18,13 @@ if (shipper) {
       <h3>Shipper Information</h3>
 
       <label>Shipper Name</label>
-      <input id="shipperName" maxlength="50" style="width:520px;" placeholder="ACME CO LTD"/>
+      <input id="shipperName" maxlength="35" style="width:520px;" placeholder="ACME CO LTD"/>
 
       <label>Shipper Address</label>
-      <input id="shipperAddr" maxlength="50" style="width:520px;" placeholder="152 Silom Rd"/>
+      <input id="shipperAddr" maxlength="35" style="width:520px;" placeholder="152 Silom Rd"/>
 
       <label>Shipper City</label>
-      <input id="shipperCity" maxlength="19" style="width:300px;" placeholder="Bangkok"/>
+      <input id="shipperCity" maxlength="17" style="width:300px;" placeholder="Bangkok"/>
 
       <label>Shipper Post Code</label>
       <input id="shipperPost" maxlength="9" style="width:110px;" placeholder="10500"/>
@@ -50,13 +50,13 @@ if (consignee) {
       <h3>Consignee Information</h3>
 
       <label>Consignee Name</label>
-      <input id="consigneeName" maxlength="50" style="width:520px;" placeholder="BETA CO LTD"/>
+      <input id="consigneeName" maxlength="35" style="width:520px;" placeholder="BETA CO LTD"/>
 
       <label>Consignee Address</label>
-      <input id="consigneeAddr" maxlength="50" style="width:520px;" placeholder="88 Jalan Ampang"/>
+      <input id="consigneeAddr" maxlength="35" style="width:520px;" placeholder="88 Jalan Ampang"/>
 
       <label>Consignee City</label>
-      <input id="consigneeCity" maxlength="19" style="width:300px;" placeholder="SINGAPORE"/>
+      <input id="consigneeCity" maxlength="17" style="width:300px;" placeholder="SINGAPORE"/>
 
       <label>Consignee Post Code</label>
       <input id="consigneePost" maxlength="9" style="width:110px;" placeholder="50450"/>
@@ -88,7 +88,7 @@ if (oci) {
         <div class="rtd-row">
           <div class="rtd-field">
             <label>SPH</label>
-            <input id="sph" placeholder="PER">
+            <input id="sph" placeholder="PER" maxlength="3" class="center-text">
           </div>
         </div>
 
@@ -99,7 +99,7 @@ if (oci) {
           </div>
           <div class="rtd-field" style="flex:1;">
             <label>Info</label>
-            <input id="info1" placeholder="TRADE REGISTER NUMBER">
+            <input id="info1" placeholder="TRADE REGISTER NUMBER" maxlength="35">
           </div>
         </div>
 
@@ -110,7 +110,7 @@ if (oci) {
           </div>
           <div class="rtd-field" style="flex:1;">
             <label>CNE T</label>
-            <input id="info2" placeholder="USCI">
+            <input id="info2" placeholder="USCI" maxlength="35">
           </div>
         </div>
 
@@ -121,7 +121,7 @@ if (oci) {
           </div>
           <div class="rtd-field" style="flex:1;">
             <label>CNE KC</label>
-            <input id="info3" placeholder="CNE NAME">
+            <input id="info3" placeholder="CNE NAME" maxlength="35">
           </div>
         </div>
 
@@ -132,7 +132,7 @@ if (oci) {
           </div>
           <div class="rtd-field" style="flex:1;">
             <label>CNE U</label>
-            <input id="info4" placeholder="TEL">
+            <input id="info4" placeholder="TEL" maxlength="35">
           </div>
         </div>
 
@@ -159,15 +159,15 @@ if (fhl) {
         <div class="double-row">
           <div class="form-field">
             <label>MAWB</label>
-            <input id="fhl_mawb" readonly>
+            <input id="fhl_mawb" readonly style="width: 120px;">
           </div>
           <div class="form-field">
             <label>PCS</label>
-            <input id="fhl_mpcs" readonly>
+            <input id="fhl_mpcs" readonly style="width: 136px;">
           </div>
           <div class="form-field">
             <label>Weight</label>
-            <input id="fhl_mweight" readonly>
+            <input id="fhl_mweight" readonly style="width: 136px;">
           </div>
         </div>
 
@@ -175,19 +175,98 @@ if (fhl) {
         <div class="double-row">
           <div class="form-field">
             <label>HAWB</label>
-            <input id="fhl_hawb">
+            <input id="fhl_hawb" maxlength="12">
           </div>
           <div class="form-field">
+            <label>Dep</label>
+            <input id="fhl_hdep" maxlength="3" class="center-text" style="width: 56px;">
+          </div>
+          <div class="form-field">
+            <label>Arr</label>
+            <input id="fhl_harr" maxlength="3" class="center-text" style="width: 56px;">
+          </div>
+        </div>
+        <div class="double-row">
+          <div class="form-field">
             <label>PCS</label>
-            <input id="fhl_hpcs" type="number">
+            <input id="fhl_hpcs" type="number" style="width: 136px;">
           </div>
           <div class="form-field">
             <label>Weight</label>
-            <input id="fhl_hweight" type="number">
+            <input id="fhl_hweight" type="number" style="width: 136px;">
           </div>
           <div class="form-field" style="flex:1;">
             <label>Nature of Goods</label>
-            <input id="fhl_ng">
+            <input id="fhl_ng" maxlength="15" style="width: 200px;">
+          </div>
+        </div>
+        <!-- HOUSE SHIPPER -->
+        <div class="section-box">
+          <h4>House Shipper</h4>
+
+          <div class="fhl-row">
+            <label>Name</label>
+            <input id="fhl_shipperName" style="width: 430px;" maxlength="35">
+          </div>
+
+          <div class="fhl-row">
+            <label>Address</label>
+            <input id="fhl_shipperAddr" style="width: 430px;" maxlength="35">
+          </div>
+
+          <div class="fhl-row">
+            <label>City</label>
+            <input id="fhl_shipperCity" style="width: 300px;" maxlength="17">
+          </div>
+
+          <div class="fhl-row">
+            <label>Post Code</label>
+            <input id="fhl_shipperPost" style="width: 110px;" maxlength="9">
+          </div>
+
+          <div class="fhl-row">
+            <label>Tel</label>
+            <input id="fhl_shipperTel" style="width: 200px;" maxlength="18">
+          </div>
+
+          <div class="fhl-row">
+            <label>Country</label>
+            <input id="fhl_shipperCountry" maxlength="2" class="center-text" style="width: 45px;">
+          </div>
+        </div>
+
+        <!-- HOUSE CONSIGNEE -->
+        <div class="section-box">
+          <h4>House Consignee</h4>
+
+          <div class="fhl-row">
+            <label>Name</label>
+            <input id="fhl_consigneeName" style="width: 430px;" maxlength="35">
+          </div>
+
+          <div class="fhl-row">
+            <label>Address</label>
+            <input id="fhl_consigneeAddr" style="width: 430px;" maxlength="35">
+          </div>
+
+          <div class="fhl-row">
+            <label>City</label>
+            <input id="fhl_consigneeCity" style="width: 300px;" maxlength="17">
+          </div>
+
+          <div class="fhl-row">
+            <label>Post Code</label>
+            <input id="fhl_consigneePost" style="width: 110px;" maxlength="9">
+          </div>
+
+          <div class="fhl-row">
+            <label>Tel</label>
+            <input id="fhl_consigneeTel" style="width: 200px;" maxlength="18">
+          </div>
+
+          <div class="fhl-row">
+            <label>Country</label>
+            <input id="fhl_consigneeCountry" maxlength="2" class="center-text" style="width: 45px;">
           </div>
         </div>
 
@@ -195,7 +274,7 @@ if (fhl) {
         <div class="rtd-row">
           <div class="rtd-field">
             <label>SPH</label>
-            <input id="fhl_sph" placeholder="PER">
+            <input id="fhl_sph" placeholder="PER" maxlength="3" class="center-text">
           </div>
         </div>
 
@@ -207,7 +286,7 @@ if (fhl) {
           </div>
           <div class="rtd-field" style="flex:1;">
             <label>Info</label>
-            <input id="fhl_info1">
+            <input id="fhl_info1" maxlength="35">
           </div>
         </div>
 
@@ -219,7 +298,7 @@ if (fhl) {
           </div>
           <div class="rtd-field" style="flex:1;">
             <label>CNE T</label>
-            <input id="fhl_info2">
+            <input id="fhl_info2" maxlength="35">
           </div>
         </div>
 
@@ -230,7 +309,7 @@ if (fhl) {
           </div>
           <div class="rtd-field" style="flex:1;">
             <label>CNE KC</label>
-            <input id="fhl_info3">
+            <input id="fhl_info3" maxlength="35">
           </div>
         </div>
 
@@ -241,7 +320,7 @@ if (fhl) {
           </div>
           <div class="rtd-field" style="flex:1;">
             <label>CNE U</label>
-            <input id="fhl_info4">
+            <input id="fhl_info4" maxlength="35">
           </div>
         </div>
 
@@ -334,10 +413,14 @@ function generateFWB() {
   msg += consigneeLine + "\n";
 
   // ---------- CARGO ----------
+  msg += `AGT//0000000/0000\n`;
+  msg += `/X\n`;
+  msg += `/X\n`;
   msg += `CVD/THB/PP/PP/NVD/NCV/XXX\n`;
 
   const rate  = parseFloat($("rate")) || 0;
   const total = parseFloat($("total")) || 0;
+
 
   msg += `RTD/1/P${pcs}/K${weight}/CQ/W${cweight}/R${rate}/T${total}\n`;
 
@@ -347,7 +430,9 @@ function generateFWB() {
 
   msg += `OTH/P/AWC1\n`;
   msg += `PPD/WT1\n`;
+  msg += `COL\n`;
   msg += `/CT1\n`;
+  msg += `CER/X\n`;
   msg += `ISU/${$("flightDate")}/${$("dep")}\n`;
   msg += `REF/CGOFHAK\n`;
 
@@ -436,12 +521,56 @@ window.generateFHL_inline = function () {
 
   let msg = "FHL/4\n";
 
-  msg += `MBI/${$("fhl_mawb")}${$("dep")}${$("arr")}/T${$("fhl_mpcs")}K${$("fhl_mweight")}\n`;
-  msg += `HBS/${$("fhl_hawb")}/${$("fhl_hpcs")}/K${$("fhl_hweight")}/${$("fhl_hpcs")}/${$("fhl_ng")}\n`;
-  msg += `TXT/${$("fhl_ng")}\n`;
+  const mpcs = parseFloat($("fhl_mpcs")) || 0;
+  const mweight = parseFloat($("fhl_mweight")) || 0;
+  const hpcs = parseFloat($("fhl_hpcs")) || 0;
+  const hweight = parseFloat($("fhl_hweight")) || 0;
+
+  // ---------- HEADER ----------
+  msg += `MBI/${$("fhl_mawb")}${$("dep")}${$("arr")}/T${mpcs}K${mweight}\n`;
+
+  msg += `HBS/${$("fhl_hawb")}/${$("fhl_hdep")}${$("fhl_harr")}/${hpcs}/K${hweight}/${hpcs}/${$("fhl_ng")}\n`;
 
   const oci = generateFHL_OCI();
   if (oci) msg += oci;
+
+  msg += `TXT/${$("fhl_ng")}\n`;
+
+// ---------- SHIPPER ----------
+let shipper =
+  `SHP/${$("fhl_shipperName")}\n` +
+  `/${$("fhl_shipperAddr")}\n` +
+  `/${$("fhl_shipperCity")}\n` +
+  `/${$("fhl_shipperCountry")}`;
+
+if ($("fhl_shipperPost")) {
+  shipper += `/${$("fhl_shipperPost")}`;
+  if ($("fhl_shipperTel")) shipper += `/TE/${$("fhl_shipperTel")}`;
+} else if ($("fhl_shipperTel")) {
+  shipper += `//TE/${$("fhl_shipperTel")}`;
+}
+
+msg += shipper + "\n";
+
+
+// ---------- CONSIGNEE ----------
+let consignee =
+  `CNE/${$("fhl_consigneeName")}\n` +
+  `/${$("fhl_consigneeAddr")}\n` +
+  `/${$("fhl_consigneeCity")}\n` +
+  `/${$("fhl_consigneeCountry")}`;
+
+if ($("fhl_consigneePost")) {
+  consignee += `/${$("fhl_consigneePost")}`;
+  if ($("fhl_consigneeTel")) consignee += `/TE/${$("fhl_consigneeTel")}`;
+} else if ($("fhl_consigneeTel")) {
+  consignee += `//TE/${$("fhl_consigneeTel")}`;
+}
+
+msg += consignee + "\n";
+
+  // ---------- CVD ----------
+  msg += `CVD/THB/PP/NVD/0.000/0.00\n`;
 
   getEl("fhl_output").innerText = msg;
 };

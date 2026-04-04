@@ -290,3 +290,22 @@ input[readonly] {
   color: #aaa;
   cursor: not-allowed;
 }
+
+/* ===== FHL SHP/CNE Left Label ===== */
+.fhl-row {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.fhl-row label {
+  margin: 0;
+  font-size: 14px;
+  color: #a0a0a0;
+}
+
+.fhl-row input {
+  margin-top: 0;
+}
