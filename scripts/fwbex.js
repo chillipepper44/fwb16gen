@@ -276,6 +276,10 @@ if (fhl) {
             <label>SPH</label>
             <input id="fhl_sph" placeholder="PER" maxlength="3" class="center-text">
           </div>
+          <div class="rtd-field">
+            <label>Currency</label>
+            <input id="fhlcurrency" maxlength="3" class="center-text" style="width: 60px;">
+          </div>
         </div>
 
         <!-- SHP -->
@@ -416,7 +420,7 @@ function generateFWB() {
   msg += `AGT//0000000/0000\n`;
   msg += `/X\n`;
   msg += `/X\n`;
-  msg += `CVD/THB/PP/PP/NVD/NCV/XXX\n`;
+  msg += `CVD/${$("fwbcurrency")}/PP/PP/NVD/NCV/XXX\n`;
 
   const rate  = parseFloat($("rate")) || 0;
   const total = parseFloat($("total")) || 0;
@@ -570,7 +574,7 @@ if ($("fhl_consigneePost")) {
 msg += consignee + "\n";
 
   // ---------- CVD ----------
-  msg += `CVD/THB/PP/NVD/0.000/0.00\n`;
+  msg += `CVD/${$("fhlcurrency")}/PP/NVD/0.000/0.00\n`;
 
   getEl("fhl_output").innerText = msg;
 };
