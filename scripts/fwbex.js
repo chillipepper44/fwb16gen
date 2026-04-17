@@ -538,7 +538,6 @@ window.generateFHL_inline = function () {
   const oci = generateFHL_OCI();
   if (oci) msg += oci;
 
-  msg += `TXT/${$("fhl_ng")}\n`;
 
 // ---------- SHIPPER ----------
 let shipper =
