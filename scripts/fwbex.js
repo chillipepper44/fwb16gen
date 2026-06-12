@@ -185,6 +185,10 @@ if (fhl) {
             <label>Arr</label>
             <input id="fhl_harr" maxlength="3" class="center-text" style="width: 56px;">
           </div>
+          <div class="form-field">
+            <label>Currency</label>
+            <input id="fhlcurrency" maxlength="3" class="center-text" style="width: 60px;">
+          </div>
         </div>
         <div class="double-row">
           <div class="form-field">
@@ -275,10 +279,6 @@ if (fhl) {
           <div class="rtd-field">
             <label>SPH</label>
             <input id="fhl_sph" placeholder="PER" maxlength="3" class="center-text">
-          </div>
-          <div class="rtd-field">
-            <label>Currency</label>
-            <input id="fhlcurrency" maxlength="3" class="center-text" style="width: 60px;">
           </div>
         </div>
 
