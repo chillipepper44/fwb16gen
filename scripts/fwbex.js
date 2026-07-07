@@ -80,17 +80,10 @@ if (oci) {
   oci.innerHTML = `
     <div class="section-box">
       <h3 onclick="toggleOCI()" style="cursor:pointer;">
-        ➕ MAWB OCI / SPH
+        ➕ MAWB OCI
       </h3>
 
       <div id="ociSection" style="display:none; margin-top:10px;">
-
-        <div class="rtd-row">
-          <div class="rtd-field">
-            <label>SPH</label>
-            <input id="sph" placeholder="PER" maxlength="3" class="center-text">
-          </div>
-        </div>
 
         <div class="rtd-row">
           <div class="rtd-field">

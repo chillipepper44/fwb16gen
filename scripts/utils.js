@@ -82,7 +82,7 @@ const mailtoLink =
 // generateOCI Function
 // ==========================
 export function generateOCI() {
-  const sph = document.getElementById("sph")?.value.trim();
+  const sph = document.getElementById("sph")?.value.trim().toUpperCase();
 
   const cc1 = document.getElementById("cc1")?.value.trim();
   const info1 = document.getElementById("info1")?.value.trim();
